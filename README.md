@@ -44,7 +44,7 @@ On the bottom of the card grid, counts for _Active_ and _Done_ TODOs can be obse
 ### State management
 To manage the application's data state, which is in this case consists only of the TODOs, a service is being used. This service takes advantage of the RxJs library by using a _BehaviorSubject_. That's a special type that will be setting values in a stream-fashion, allowing the subscribers (_Dashboard component_ in this case) from it to pick them up and determine what to do everytime there's a change on the data.
 
-  
+_General Enhancement_ Use LocalStorage or Cookies to preserve the user TODOs on page reload.  
 
 ## Running the project locally
 
