@@ -61,4 +61,5 @@ You can then run `npm start` , which will spin up a development server and make 
   
 
 A simple integration was done for deploying the application, by using **Github Pages**, using the helper library [angular-cli-ghpages](https://www.npmjs.com/package/angular-cli-ghpages) . This handles running the build steps for the application and pushing into a specific branch on its GH repo, which at the same time gets configured to deploy to a GH pages assigned URL.
-  
+
+The deployed version of this repository can be found [here](https://faridhajnal.github.io/mt3-frontend-challenge/)
