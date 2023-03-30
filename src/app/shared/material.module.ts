@@ -9,6 +9,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
         MatInputModule,
         MatSelectModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        DragDropModule
     ],
     exports: [
         MatToolbarModule,
@@ -33,7 +35,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
         MatInputModule,
         MatSelectModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        DragDropModule
     ]
 })
 export class MaterialModule {}

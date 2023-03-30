@@ -14,7 +14,12 @@
     </div>
 </div>
 <br>
-<mt3-card-grid [todos]="activeTodos" (updateTodoStatus)="updateTodoStatus($event)" (deleteTodo)="deleteTodo($event)"></mt3-card-grid>
+<mt3-card-grid 
+[todos]="activeTodos"
+(updateTodoStatus)="updateTodoStatus($event)"
+(deleteTodo)="deleteTodo($event)"
+(todoCardDropped)="reorderTodos($event)"
+></mt3-card-grid>
 <br>
 <div class="todos-stats">
 <ng-container *ngIf="activeTodosCount$ | async as atc">

@@ -1,3 +1,4 @@
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
@@ -72,5 +73,10 @@ export class DashboardComponent {
 
   deleteTodo(id: number) {
     if(id) this.todosService.deleteTodo(id)
+  }
+
+  reorderTodos(event: number[]) {
+    const [previousIndex, currentIndex] = event
+    moveItemInArray(this.activeTodos, previousIndex, currentIndex)
   }
 }
