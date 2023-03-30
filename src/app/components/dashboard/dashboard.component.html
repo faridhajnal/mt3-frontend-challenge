@@ -1,14 +1,26 @@
-<button color="primary" class="new-todo-btn" mat-fab color="primary" (click)="openCreateDialog()">
-    <mat-icon>add</mat-icon>
-</button>
+<div class="todos-taskbar">
+    <button color="primary" class="new-todo-btn" mat-fab color="primary" (click)="openCreateDialog()">
+        <mat-icon>add</mat-icon>
+    </button>
+    <div class="slide-container" *ngIf="activeTodos.length">
+        <mat-form-field appearance="fill">
+            <mat-label>Sort By Date</mat-label>
+            <mat-select (selectionChange)="sortTodosByDate($event)">
+                <mat-option *ngFor="let sort of sortingOptions" [value]="sort.value">
+                {{sort.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
 <br>
 <mt3-card-grid [todos]="activeTodos" (updateTodoStatus)="updateTodoStatus($event)" (deleteTodo)="deleteTodo($event)"></mt3-card-grid>
 <br>
-<div class="tasks-stats">
+<div class="todos-stats">
 <ng-container *ngIf="activeTodosCount$ | async as atc">
-    <span>Active: {{atc}}</span>
+    <span>Active TODOs: {{atc}}</span>
 </ng-container>
 <ng-container *ngIf="doneTodosCount$ | async as dtc">
-    <span>Done: {{dtc}}</span>
+    <span>Done TODOs: {{dtc}}</span>
 </ng-container>
 </div>

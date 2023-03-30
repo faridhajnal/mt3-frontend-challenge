@@ -2,7 +2,11 @@
     <mat-card-title>
         {{todo.text}}
     </mat-card-title>
-    <mat-card-content>Priority: <strong>{{todo.priority}}</strong></mat-card-content>
+    <mat-card-content>
+        Priority: <strong>{{todo.priority}}</strong>
+        <hr/>
+        Due Date: <strong>{{todo.dueDate | date}}</strong>
+    </mat-card-content>
     <mat-card-footer>
         <mat-card-actions>
             <button color="accent" mat-raised-button (click)="onDelete(todo.id)">DELETE</button>

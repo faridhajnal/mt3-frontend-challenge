@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSelectChange } from '@angular/material/select';
 import { Observable, Subscription } from 'rxjs';
 import { Todo, TodoStatus } from '../../data/todo';
 import { TodosService } from '../../data/todo.service';
@@ -18,6 +19,21 @@ export class DashboardComponent {
   activeTodos: Todo[] = []
   activeTodosCount$: Observable<number>
   doneTodosCount$: Observable<number>
+
+  sortingOptions = [
+    {
+      value: 'MostRecent',
+      viewValue: 'Most recent first'
+    },
+    {
+      value: 'LeastRecent',
+      viewValue: 'Least recent first'
+    },
+    {
+      value: 'None',
+      viewValue: 'No date sorting'
+    },
+  ]
   constructor(private dialog: MatDialog, private todosService: TodosService) {
     //this.todos$ = todosService.todos.asObservable()
     this.todosSub = todosService.todos.subscribe(todos => {
@@ -25,6 +41,20 @@ export class DashboardComponent {
     })
     this.activeTodosCount$ = todosService.activeTodosCount.asObservable()
     this.doneTodosCount$ = todosService.doneTodosCount.asObservable()
+  }
+
+  sortTodosByDate(event: MatSelectChange) {
+    switch(event.value) {
+      case 'MostRecent':
+        this.activeTodos = this.activeTodos.sort((t1, t2) => t1.dueDate > t2.dueDate ? 1 : -1)
+        break
+      case 'LeastRecent':
+        this.activeTodos = this.activeTodos.sort((t1, t2) => t1.dueDate > t2.dueDate ? -1 : 1)
+        break
+      default:
+        this.activeTodos = this.activeTodos.sort((t1, t2) => t1.id - t2.id)
+        break
+    }
   }
 
   openCreateDialog() {
