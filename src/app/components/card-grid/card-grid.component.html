@@ -1,0 +1,7 @@
+<div class="cards-container">
+    <div class="single-card" *ngFor="let todo of todos">
+        <mt3-card [todo]="todo" 
+        (updateTodoStatus)="updateTodoStatus.emit($event)"
+        (deleteTodo)="deleteTodo.emit($event)"></mt3-card>
+    </div>
+</div>

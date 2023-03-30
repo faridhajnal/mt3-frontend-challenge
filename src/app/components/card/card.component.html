@@ -1,0 +1,12 @@
+<mat-card [style.backgroundColor]="isAlmostDue ? '#FFD6D6' : '#FFFFFF'">
+    <mat-card-title>
+        {{todo.text}}
+    </mat-card-title>
+    <mat-card-content>Priority: <strong>{{todo.priority}}</strong></mat-card-content>
+    <mat-card-footer>
+        <mat-card-actions>
+            <button color="accent" mat-raised-button (click)="onDelete(todo.id)">DELETE</button>
+            <button color="primary" mat-raised-button (click)="onMarkAsCompleted(todo.id)">MARK COMPLETED</button>
+        </mat-card-actions>
+    </mat-card-footer>
+</mat-card>

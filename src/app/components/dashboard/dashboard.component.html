@@ -1,0 +1,14 @@
+<button color="primary" class="new-todo-btn" mat-fab color="primary" (click)="openCreateDialog()">
+    <mat-icon>add</mat-icon>
+</button>
+<br>
+<mt3-card-grid [todos]="activeTodos" (updateTodoStatus)="updateTodoStatus($event)" (deleteTodo)="deleteTodo($event)"></mt3-card-grid>
+<br>
+<div class="tasks-stats">
+<ng-container *ngIf="activeTodosCount$ | async as atc">
+    <span>Active: {{atc}}</span>
+</ng-container>
+<ng-container *ngIf="doneTodosCount$ | async as dtc">
+    <span>Done: {{dtc}}</span>
+</ng-container>
+</div>

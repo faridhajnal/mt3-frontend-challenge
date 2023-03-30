@@ -1,0 +1,14 @@
+mat-card {
+    min-height: 100px;
+    min-width: 300px;
+}
+
+mat-card-title {
+    margin-left: 15px;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}

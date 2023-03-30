@@ -1,0 +1,16 @@
+.page-background {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: black;
+}
+
+.page-content {
+    width: 80%;
+    height: 90%;
+    overflow-y: auto;
+    background-color: #43ED3F;
+    flex: 1;
+    align-self: center;
+    margin: 10%;
+}

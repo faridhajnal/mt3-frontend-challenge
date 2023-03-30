@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>
+    New ToDo
+</h1>
+
+<div mat-dialog-content>
+    <form [formGroup]="todoForm">
+        <mat-form-field>
+            <mat-label>Text</mat-label>
+            <input matInput formControlName="text" />
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Priority</mat-label>
+            <mat-select formControlName="priority">
+                <mat-option *ngFor="let priority of todoPriorities" [value]="priority">{{priority}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [min]="currentDate" [matDatepicker]="picker" formControlName="dueDate" >
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions align="center">
+    <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="todoForm.invalid" (click)="onAttemptCreate()">Create</button>
+</div>
